@@ -3,278 +3,174 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>JC Guinchos & Munck — Auto Socorro 24h</title>
-  <meta name="description" content="JC Guinchos & Munck — Socorro 24h, guincho plataforma, munck e transporte de veículos. Atendimento rápido e cobertura regional." />
-  <meta name="keywords" content="guincho, guincho 24h, munck, reboque, socorro veicular, transporte de veículos, JC Guinchos" />
-  <meta property="og:title" content="JC Guinchos & Munck — Auto Socorro 24h">
-  <meta property="og:description" content="Socorro 24 horas, guincho plataforma e munck. Clique para chamar no WhatsApp.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/JC%20GUINCHOS%20E%20MUNCK.png">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- placeholder simple favicon -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1724;
-      --accent:#ff2d2d;
-      --muted:#9aa6b2;
-      --white:#ffffff;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Inter,system-ui,Arial,sans-serif; background: linear-gradient(180deg,#071022 0%, #081228 60%); color:var(--white);}
-    a{color:inherit}
-    .container{max-width:1100px; margin:0 auto; padding:20px;}
-    /* Header */
-    header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 0;}
-    .brand{display:flex; align-items:center; gap:12px;}
-    .logo {
-      width:56px; height:56px; border-radius:12px; overflow:hidden;
-      box-shadow:0 6px 18px rgba(0,0,0,0.6); border:2px solid rgba(255,255,255,0.05);
-      background:linear-gradient(135deg,#111 0%, #222 100%);
-      display:flex; align-items:center; justify-content:center; font-weight:700;
-    }
-    .brand h1{font-size:18px; margin:0; line-height:1; letter-spacing:-0.4px}
-    .brand p{margin:0; font-size:12px; color:var(--muted)}
-    nav{display:flex; gap:12px; align-items:center;}
-    .btn-ghost{background:transparent; color:var(--white); padding:8px 12px; border-radius:10px; font-weight:600; border:1px solid transparent}
-    .btn-primary{background:var(--accent); color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(255,45,45,0.12)}
-    /* Hero */
-    .hero{
-      display:grid; grid-template-columns: 1fr; gap:18px; align-items:center;
-      margin-top:8px; padding:18px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:18px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-    }
-    .hero-grid{display:grid; grid-template-columns: 1fr; gap:16px; align-items:center;}
-    .hero .image {
-      border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.6);
-    }
-    .hero img{display:block; width:100%; height:auto; object-fit:cover;}
-    .hero-text{padding: 10px 6px;}
-    .kicker{display:inline-block; background:var(--glass); color:var(--muted); padding:6px 10px; border-radius:999px; font-size:13px; margin-bottom:8px}
-    .hero-text h2{margin:6px 0 8px; font-size:26px}
-    .hero-text p{margin:0 0 14px; color:var(--muted); line-height:1.45}
-    .cta-wrap{display:flex; gap:10px; flex-wrap:wrap;}
-    .cta{display:inline-flex; gap:10px; align-items:center; padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none;}
-    .cta.whatsapp{background:linear-gradient(90deg,#17c964,#25d366); color:#042; box-shadow:0 8px 24px rgba(37,211,102,0.12)}
-    .cta.call{background:transparent; color:var(--white); border:1px solid rgba(255,255,255,0.06)}
-    /* Services */
-    .services{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px; border-radius:12px; box-shadow:0 8px 24px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.02)}
-    .card h3{margin:0 0 8px; font-size:16px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    /* About + contact */
-    .split{display:grid; grid-template-columns: 1fr 360px; gap:18px; margin-top:18px;}
-    .contact-card{position:sticky; top:18px; padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
-    .contact-card h4{margin:0 0 8px}
-    .contact-card a.item{display:flex; gap:12px; align-items:center; padding:10px; border-radius:10px; text-decoration:none; color:var(--white); border:1px solid rgba(255,255,255,0.02); margin-top:10px}
-    .small{font-size:13px; color:var(--muted)}
-    footer{margin-top:28px; padding:18px 0; text-align:center; color:var(--muted); font-size:14px}
-    /* Responsive */
-    @media (min-width:860px){
-      .hero-grid{grid-template-columns: 1fr 420px}
-      .hero .image{height:360px}
-    }
-    @media (max-width:859px){
-      .services{grid-template-columns:repeat(2,1fr)}
-      .split{grid-template-columns:1fr}
-      .contact-card{position:relative}
-      header{flex-direction:column; align-items:flex-start; gap:12px}
-    }
-    @media (max-width:480px){
-      .services{grid-template-columns:1fr}
-      .hero-text h2{font-size:20px}
-      .brand h1{font-size:16px}
-    }
-    /* subtle icon style */
-    .icon{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:rgba(255,255,255,0.03)}
-    /* testimonials */
-    .testimonials{margin-top:18px; display:grid; gap:12px}
-    .testimonial{padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.02)}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- header -->
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <img src="https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/logojcguinchos.png" alt="logo" style="width:100%;height:100%;object-fit:cover"/>
-        </div>
-        <div>
-          <h1>JC Guinchos & Munck</h1>
-          <p class="small">Auto Socorro 24h — São Leopoldo e região</p>
-        </div>
-      </div>
+  <title>Guincho 24h em São Leopoldo | JC Guinchos & Munck — Atendimento Imediato</title>
 
-      <nav>
-        <a class="btn-ghost" href="#services">Serviços</a>
-        <a class="btn-ghost" href="#about">Sobre</a>
-        <a class="btn-primary" href="https://wa.me/+5551995487872?text=Ol%C3%A1%20preciso%20de%20guincho%20agora" target="_blank" rel="noopener">Chamar WhatsApp</a>
-      </nav>
-    </header>
+  <!-- Basic SEO -->
+  <meta name="description" content="JC Guinchos 24h — Guincho plataforma, Munck e auto socorro em São Leopoldo, Novo Hamburgo, Sapucaia do Sul, Canoas e região. Atendimento rápido pelo WhatsApp." />
+  <meta name="keywords" content="guincho São Leopoldo, guincho 24h, auto socorro São Leopoldo, guincho Novo Hamburgo, guincho Sapucaia do Sul, guincho Canoas, munck São Leopoldo" />
+  <meta name="author" content="JC Guinchos 24h">
 
-    <!-- hero -->
-    <section class="hero" id="top">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <span class="kicker">Atendimento 24h</span>
-          <h2>Socorro rápido. Guincho plataforma e Munck</h2>
-          <p>JC Guinchos & Munck oferece remoção, transporte e operações com Munck com equipe experiente. Atendimento imediato e cobertura para cidades vizinhas.</p>
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="JC Guinchos — Guincho 24h em São Leopoldo e Região">
+  <meta property="og:description" content="Atendimento 24h: guincho plataforma, remoção de veículos e Munck. Fale conosco pelo WhatsApp.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/logojcguinchos.png">
+  <meta property="og:url" content="https://jvdskill.github.io/jcguinchos-24h/">
+  <meta name="twitter:card" content="summary_large_image">
 
-          <div class="cta-wrap">
-            <a class="cta whatsapp" href="https://wa.me/+5551995487872?text=Ol%C3%A1%20preciso%20de%20guincho%20agora" target="_blank" rel="noopener">
-              <!-- WhatsApp SVG icon -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.671.15-.198.297-.771.966-.946 1.164-.174.198-.349.223-.646.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.654-2.059-.174-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.174.198-.297.298-.495.099-.198.05-.371-.025-.52-.075-.148-.671-1.612-.92-2.21-.242-.579-.487-.5-.671-.51l-.572-.01c-.198 0-.52.074-.793.372s-1.04 1.016-1.04 2.479 1.064 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 0.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.174-1.413-.074-.123-.272-.198-.57-.347z" fill="#042" /></svg>
-              Chamar no WhatsApp
-            </a>
+  <!-- Favicon (simples inline placeholder) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚨</text></svg>">
 
-            <a class="cta call" href="tel:+5551995487872">
-              <span class="icon">📞</span>
-              Ligar agora
-            </a>
-          </div>
-        </div>
-
-        <div class="image" aria-hidden="false">
-          <!-- local path (substitua pelo RAW GitHub quando for publicar) -->
-         <img src="https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/JC%20GUINCHOS%20E%20MUNCK.png"
-     alt="JC Guinchos e Munck"
-     style="
-        width: 100%;
-        max-width: 900px;
-        height: auto;
-        object-fit: contain;
-        border-radius: 10px;
-        display: block;
-        margin: auto;
-     ">
-
-        </div>
-      </div>
-
-      <!-- quick highlights -->
-      <div class="services" id="services" aria-hidden="false" style="margin-top:18px;">
-        <div class="card">
-          <h3>Guincho Plataforma</h3>
-          <p>Transporte seguro de carros, motos e veículos leves com plataforma de carga.</p>
-        </div>
-        <div class="card">
-          <h3>Munck / Operações Pesadas</h3>
-          <p>Munck para remoção de cargas, tombos leves e operações que exigem braço hidráulico.</p>
-        </div>
-        <div class="card">
-          <h3>Socorro 24h</h3>
-          <p>Atendimento emergencial, deslocamento rápido e envio de equipe ao local.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- split: about / contact -->
-    <section class="split" id="about">
-      <div>
-        <div class="card" style="margin-bottom:12px;">
-          <h3>Sobre a JC Guinchos & Munck</h3>
-          <p class="small">Equipe experiente com atuação em São Leopoldo e região. Trabalhamos com remoções rápidas, transporte para oficinas e operações com Munck. Prioridade total à segurança do veículo e satisfação do cliente.</p>
-        </div>
-
-        <div class="card">
-          <h3>Por que nos escolher?</h3>
-          <ul class="small" style="padding-left:18px; margin:8px 0 0 0;">
-            <li>Resposta rápida e transparente</li>
-            <li>Pessoal qualificado e equipamentos modernos</li>
-            <li>Atendimento 24 horas, plantão contínuo</li>
-          </ul>
-        </div>
-
-        <div class="testimonials" style="margin-top:12px;">
-          <div class="testimonial">
-            <strong>“Chegaram rápido e salvaram meu dia. Profissionais atentos e prestativos.”</strong>
-            <div class="small">— Cliente satisfeito</div>
-          </div>
-          <div class="testimonial">
-            <strong>“Serviço impecável, transporte sem danos. Recomendo!”</strong>
-            <div class="small">— Oficina local</div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="contact-card">
-        <h4>Contato rápido</h4>
-        <div class="small">Atendimento 24 horas — fale conosco</div>
-
-        <a class="item" href="https://wa.me/5551995487872?text=Ol%C3%A1%20preciso%20de%20guincho%20agora" target="_blank" rel="noopener">
-          <div class="icon" aria-hidden="true">
-            <!-- small WA icon -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.671.15-.198.297-.771.966-.946 1.164-.174.198-.349.223-.646.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.654-2.059-.174-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.174.198-.297.298-.495.099-.198.05-.371-.025-.52-.075-.148-.671-1.612-.92-2.21-.242-.579-.487-.5-.671-.51l-.572-.01c-.198 0-.52.074-.793.372s-1.04 1.016-1.04 2.479 1.064 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 0.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.174-1.413-.074-.123-.272-.198-.57-.347z" fill="#042" /></svg>
-          </div>
-          <div>
-            <div style="font-weight:700">WhatsApp</div>
-            <div class="small">+55 (19) 99548-7872</div>
-          </div>
-        </a>
-
-        <a class="item" href="tel:+5519995487872">
-          <div class="icon">📞</div>
-          <div>
-            <div style="font-weight:700">Ligar agora</div>
-            <div class="small">Plantão 24h</div>
-          </div>
-        </a>
-
-        <a class="item" href="https://www.google.com/maps/search/?api=1&query=Novo+Hamburgo+RS" target="_blank" rel="noopener">
-          <div class="icon">📍</div>
-          <div>
-            <div style="font-weight:700">Atuamos em</div>
-            <div class="small">São Leopoldo e região</div>
-          </div>
-        </a>
-
-        <div style="margin-top:12px;" class="small">Entre em contato e iremos lhe auxiliar.</div>
-      </aside>
-    </section>
-
-    <footer>
-      © <span id="year"></span> JC Guinchos & Munck — Todos os direitos reservados
-    </footer>
-  </div>
-
-  <!-- Structured data (LocalBusiness) -->
+  <!-- Structured data (Schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "TowingService",
     "name": "JC Guinchos & Munck",
-    "description": "Auto socorro 24h, guincho plataforma, munck e transporte de veículos. Atendimento rápido em São Leopoldo e região.",
-    "telephone": "+5519995487872",
+    "image": "https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/logojcguinchos.png",
+    "@id": "https://jvdskill.github.io/jcguinchos-24h/",
     "url": "https://jvdskill.github.io/jcguinchos-24h/",
-    "image": "https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/JC%20GUINCHOS%20E%20MUNCK.png",
-    "areaServed": {
-      "@type": "City",
-      "name": "São Leopoldo"
+    "telephone": "+5519995487872",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Leopoldo",
+      "addressRegion": "RS",
+      "addressCountry": "BR"
     },
+    "areaServed": [
+      "São Leopoldo",
+      "Novo Hamburgo",
+      "Sapucaia do Sul",
+      "Esteio",
+      "Canoas",
+      "Portão",
+      "Estância Velha",
+      "Campo Bom",
+      "Ivoti",
+      "São José do Hortêncio"
+    ],
     "openingHours": "Mo-Su 00:00-23:59"
   }
   </script>
 
-  <script>
-    // small helpers
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- Styles: limpo, responsivo e rápido -->
+  <style>
+    :root{
+      --accent:#c01515;
+      --green:#25d366;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --card:#ffffff;
+      --radius:12px;
+      font-family: Inter, system-ui, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:linear-gradient(180deg,#fff,#fafafa); color:#111; -webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:0 auto;padding:18px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:82px;height:82px;border-radius:10px;object-fit:cover}
+    .brand .title{font-size:18px;font-weight:700}
+    .brand .subtitle{font-size:13px;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center;margin-top:12px}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}}
+    .hero .main-img{border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+    .hero .main-img img{width:100%;height:100%;object-fit:contain;display:block}
+    .hero .info{padding:14px}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:10px 0;color:var(--muted);line-height:1.5}
+    .cta-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.whatsapp{background:var(--green);color:#042}
+    .btn.call{background:transparent;border:2px solid rgba(0,0,0,0.06);color:#111}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.04)}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    @media(max-width:900px){.services{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.services{grid-template-columns:1fr}}
+    .service h3{margin:0 0 6px;font-size:16px}
+    footer{margin-top:28px;padding:18px 0;color:var(--muted);text-align:center;font-size:14px}
+    /* floating whatsapp button for mobile */
+    .float-wa{position:fixed;right:18px;bottom:18px;z-index:999}
+    .float-wa a{display:inline-block;background:var(--green);color:#042;padding:14px 16px;border-radius:999px;text-decoration:none;font-weight:800;box-shadow:0 8px 30px rgba(37,211,102,0.12)}
+  </style>
+</head>
 
-    // Optional: smooth scroll for anchors
-    (function(){
-      const links = document.querySelectorAll('a[href^="#"]');
-      for(const l of links){
-        l.addEventListener('click', function(e){
-          e.preventDefault();
-          const id = this.getAttribute('href').slice(1);
-          if(!id) return;
-          const el = document.getElementById(id);
-          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-        });
-      }
-    })();
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/logojcguinchos.png" alt="JC Guinchos Logo">
+        <div>
+          <div class="title">JC Guinchos & Munck</div>
+          <div class="subtitle">Guincho 24h — São Leopoldo · Novo Hamburgo · Região</div>
+        </div>
+      </div>
+      <div>
+        <a class="btn call" href="tel:+5519995487872">📞 +55 (19) 99548-7872</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="main-img card" aria-hidden="false">
+          <img src="https://raw.githubusercontent.com/jvdskill/jcguinchos-24h/main/JC%20GUINCHOS%20E%20MUNCK.png" alt="JC Guinchos - frota e munck">
+        </div>
+
+        <aside class="card" aria-label="Contato rápido">
+          <h2 id="hero-title">Atendimento Rápido 24 horas</h2>
+          <p class="lead">Socorro veicular, guincho plataforma, Munck para cargas e remoção de veículos. Atendimento imediato em São Leopoldo e região.</p>
+
+          <div class="cta-group">
+            <a class="btn whatsapp" href="https://wa.me/5519995487872?text=Ol%C3%A1%20preciso%20de%20um%20guincho%20agora" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a class="btn call" href="tel:+5519995487872">📞 Ligar</a>
+          </div>
+
+          <div style="margin-top:14px;font-size:14px;color:var(--muted)">
+            Área de atuação: São Leopoldo, Novo Hamburgo, Sapucaia do Sul, Canoas, Esteio, Portão, Estância Velha, Campo Bom, Ivoti.
+          </div>
+        </aside>
+      </section>
+
+      <section class="services" aria-label="Serviços oferecidos" id="services">
+        <div class="card service">
+          <h3>Guincho Plataforma</h3>
+          <p>Transporte seguro para carros, motos e utilitários.</p>
+        </div>
+        <div class="card service">
+          <h3>Munck / Operações Pesadas</h3>
+          <p>Movimentação de cargas leves, remoção com gancho e suporte técnico.</p>
+        </div>
+        <div class="card service">
+          <h3>Socorro 24h</h3>
+          <p>Atendimento emergencial 24 horas — envio de equipe onde você estiver.</p>
+        </div>
+        <div class="card service">
+          <h3>Remoção de Veículos</h3>
+          <p>Retirada de veículos com pane ou avaria para oficinas e pátios.</p>
+        </div>
+        <div class="card service">
+          <h3>Transporte para oficinas</h3>
+          <p>Encaminhamento seguro até mecânicas e centros automotivos parceiros.</p>
+        </div>
+        <div class="card service">
+          <h3>Atendimento a empresas</h3>
+          <p>Parcerias com oficinas e seguradoras — serviços agendados e emergenciais.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> JC Guinchos & Munck · Atendimento 24h · <span style="color:var(--muted)">Feito por você</span>
+    </footer>
+  </div>
+
+  <!-- floating whatsapp button -->
+  <div class="float-wa" aria-hidden="false">
+    <a href="https://wa.me/5519995487872?text=Ol%C3%A1%20preciso%20de%20um%20guincho%20agora" target="_blank" rel="noopener">🚨 Chamar no WhatsApp</a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
